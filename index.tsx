@@ -7,6 +7,7 @@ import {
   Dimensions,
   Modal,
   TouchableOpacity,
+  Text,
 } from 'react-native';
 
 const SCREEN_HEIGHT = Dimensions.get('window').height;
@@ -78,7 +79,7 @@ const HalfModal: React.FC<HalfModalProps> = ({
           alignItems: 'center',
         }}>
         <TouchableOpacity
-          style={[styles.background, {opacity: 0.3}]}
+          style={{...styles.background}}
           onPress={() => {
             setModalVisible(!modalVisible);
           }}
@@ -117,6 +118,7 @@ const HalfModal: React.FC<HalfModalProps> = ({
             padding: 10,
           }}>
           {children}
+          <Text>asass</Text>
         </Animated.View>
       </View>
     </Modal>
@@ -131,6 +133,7 @@ const styles = StyleSheet.create({
   background: {
     ...StyleSheet.absoluteFillObject,
     backgroundColor: '#000',
+    opacity: 0.3,
     position: 'absolute',
     bottom: 0,
     left: 0,
