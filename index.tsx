@@ -118,7 +118,6 @@ const HalfModal: React.FC<HalfModalProps> = ({
             padding: 10,
           }}>
           {children}
-          <Text>asass</Text>
         </Animated.View>
       </View>
     </Modal>
@@ -132,7 +131,7 @@ const styles = StyleSheet.create({
   },
   background: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: '#000',
+    backgroundColor: 'red',
     opacity: 0.3,
     position: 'absolute',
     bottom: 0,
