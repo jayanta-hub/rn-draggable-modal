@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "peerDependencies": {
-    "react": "^17.0.0",
-    "react-native": "^0.68.0"
+    "react": "*",
+    "react-native": "*"
   },
   "repository": {
     "type": "git",
