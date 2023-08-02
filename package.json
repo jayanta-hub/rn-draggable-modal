@@ -1,7 +1,7 @@
 {
-  "name": "rn-half-modal",
+  "name": "rn-draggable-modal",
   "version": "1.0.0",
-  "description": "rn-half-modal",
+  "description": "rn-draggable-modal",
   "main": "index.tsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -29,7 +29,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jayanta-hub/rn-half-modal.git"
+    "url": "git+https://github.com/jayanta-hub/rn-draggable-modal.git"
   },
   "keywords": [
     "React-native",
@@ -38,7 +38,7 @@
   "author": "jayanta",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jayanta-hub/rn-half-modal/issues"
+    "url": "https://github.com/jayanta-hub/rn-draggable-modal/issues"
   },
-  "homepage": "https://github.com/jayanta-hub/rn-half-modal#readme"
+  "homepage": "https://github.com/jayanta-hub/rn-draggable-modal#readme"
 }
