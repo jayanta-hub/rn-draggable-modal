@@ -29,7 +29,7 @@ const HalfModal: React.FC<HalfModalProps> = ({
   children,
   minHeight = 60,
   modalHeight = SCREEN_HEIGHT / 2,
-  hasDraggableIcon = false,
+  hasDraggableIcon = true,
   dragIconStyle,
   dragIconColor,
   modalBackgroundColor = 'white',
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
   },
   background: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'red',
+    backgroundColor: '#000',
     opacity: 0.3,
     position: 'absolute',
     bottom: 0,
