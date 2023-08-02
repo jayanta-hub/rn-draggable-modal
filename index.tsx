@@ -29,7 +29,7 @@ const HalfModal: React.FC<HalfModalProps> = ({
   children,
   minHeight = 60,
   modalHeight = SCREEN_HEIGHT / 2,
-  hasDraggableIcon = true,
+  hasDraggableIcon = false,
   dragIconStyle,
   dragIconColor,
   modalBackgroundColor = 'white',
