@@ -75,7 +75,7 @@ const HalfModal: React.FC<HalfModalProps> = ({
 
   return (
     <Modal
-      animationType='fade'
+      animationType="fade"
       transparent={true}
       visible={modalVisible}
       onRequestClose={() => {
@@ -124,9 +124,10 @@ const HalfModal: React.FC<HalfModalProps> = ({
                     />
                   </>
                 ) : dragIconName === 'dots' ? (
-                  numberOfDotsArray.map(d => {
+                  numberOfDotsArray.map((d, ind) => {
                     return (
                       <View
+                        key={ind}
                         style={
                           dragIconStyle
                             ? dragIconStyle
