@@ -1,80 +1,122 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# rn-draggable-modal
 
-# Getting Started
+<img alt="npm peer dependency version" src="https://img.shields.io/npm/dependency-version/rn-otp-inputs/peer/react"> <img alt="npm peer dependency version" src="https://img.shields.io/npm/dependency-version/rn-otp-inputs/peer/react-native"> <img alt="npm peer dependency version" src="https://img.shields.io/npm/dependency-version/rn-otp-inputs/peer/prop-types"> <img alt="npm" src="https://img.shields.io/npm/dm/rn-otp-inputs"> <img alt="GitHub" src="https://img.shields.io/github/license/jayanta-hub/rn-otp-inputs">
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+**rn-draggable-modal** is a tiny Javascript library which provides an elegant UI for the end user to use customize modal. It also features a carefully crafted flow to handle edge cases for volatile user gestures. We provide default UI, but you can always customize the appearance as you like.
 
-## Step 1: Start the Metro Server
+## Sample
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+![Sample](./ios.gif)
 
-To start Metro, run the following command from the _root_ of your React Native project:
+## Installation
 
-```bash
-# using npm
-npm start
+`npm install --save rn-draggable-modal`
 
-# OR using Yarn
-yarn start
+or
+
+`yarn add rn-draggable-modal`
+
+## PeerDependencies
+
+### NOTES:
+
+This packgae will support react@^17.0.0, react@^18.0.0,react-native@^0.68.0,react-native@^0.69.0,react-native@^0.70.0, react-native@^0.71.0. Make sure you have install respective viersion.
+
+`npm install --save react@18.2.0 react-native@0.72.3`
+
+or
+
+`yarn add react@17.0.0 react-native@0.72.3`
+
+## Basic Usage
+
+```
+import DraggableModal from 'rn-draggable-modal';
+
+...
+const [isHalfModalVisible, setHalfModalVisible] = useState(false);
+...
+      <DraggableModal
+        modalVisible={isHalfModalVisible}
+        setModalVisible={setHalfModalVisible}
+        dragIconName="dots"
+        modalInitialHeight={200}
+        dragIconColor="skyblue"
+        children={
+          <ScrollView
+            contentContainerStyle={{
+              flexGrow: 1,
+              paddingHorizontal: 5,
+            }}>
+            <Text>Welcome to React Native....</Text>
+          </ScrollView>
+        }
+      />
 ```
 
-## Step 2: Start your Application
+## More Advanced Usage
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+```
+import DraggableModal from 'rn-draggable-modal';
 
-### For Android
-
-```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
+...
+const [isHalfModalVisible, setHalfModalVisible] = useState(false);
+...
+    <DraggableModal
+        modalVisible={isHalfModalVisible}
+        setModalVisible={setHalfModalVisible}
+        dragIconName="dots"
+        modalWidth="80%"
+        modalInitialHeight={200}
+        hasDraggable={false}
+        dragIconColor="skyblue"
+        numberOfDots={5}
+        hasDraggableIcon={false}
+         dragIconStyle={{    //dots style
+           backgroundColor: 'green',
+           width: 8,
+           height: 8,
+           borderRadius: 4,
+           marginHorizontal: 3,
+         }}
+       children={
+          <ScrollView
+            contentContainerStyle={{
+              flexGrow: 1,
+              paddingHorizontal: 5,
+            }}>
+            <Text>Welcome to React Native....</Text>
+          </ScrollView>
+        }
+      />
 ```
 
-### For iOS
+## Parameters
 
-```bash
-# using npm
-npm run ios
+| Parameter          | Required | Type        | Default                                                                                          | Description                                                 |
+| ------------------ | -------- | ----------- | ------------------------------------------------------------------------------------------------ | ----------------------------------------------------------- |
+| modalVisible       | `Yes`    | `Boolean`   | `false`                                                                                          | The visible prop determines whether your modal is visible.. |
+| setModalVisible    | `No`     | `Function`  | `()=>{}`                                                                                         | This callback is called when user taps outside of a Modal.  |
+| dragIconName       | `No`     | `String`    | `bar`                                                                                            | `dragIconName` can be bar or dots.                          |
+| modalWidth         | `No`     | `String`    | `100%`                                                                                           | Width of modal in percentage.                               |
+| modalInitialHeight | `No`     | `String`    | `50% of screen`                                                                                  | Height of modal at inital render.                           |
+| hasDraggable       | `No`     | `Boolean`   | `true`                                                                                           | Enable draggable feature for modal.                         |
+| dragIconColor      | `No`     | `String`    | `#A3A3A3`                                                                                        | Change dragIcon Color of modal .                            |
+| numberOfDots       | `No`     | `Number`    | `3`                                                                                              | Change number of dots in modal.                             |
+| hasDraggableIcon   | `No`     | `String`    | `true`                                                                                           | Enable draggable feature for draggable Icon.                |
+| dragIconStyle      | `No`     | `String`    | `{{width: 40,height: 6,borderRadius: 3,}}`                                                       | Change the style of the dragIcon.                           |
+| children           | `yes`    | `Component` | `<ScrollView contentContainerStyle={{flexGrow: 1}}><Text>This is half modal</Text></ScrollView>` | To render child component within modal.                     |
 
-# OR using Yarn
-yarn ios
-```
+## Contributing
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+Pull requests are always welcome! Feel free to open a new GitHub issue for any changes that can be made.
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+## Author
 
-## Step 3: Modifying your App
+![jayanta7381](https://www.npmjs.com/npm-avatar/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdmF0YXJVUkwiOiJodHRwczovL3MuZ3JhdmF0YXIuY29tL2F2YXRhci81ZWZhZGY0MjdjNzliM2YxZDY0ODcxNzI0NjI2NWQzNz9zaXplPTEwMCZkZWZhdWx0PXJldHJvIn0.Ujb96nLBkk2Z0K5NilEVjWj-0Kpa6NTFeIV8c5Ip-mQ)
 
-Now that you have successfully run the app, let's modify it.
+[Jayanta Garu](https://github.com/jayanta-hub)
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+## License
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
-# rn-half-modal
+MIT

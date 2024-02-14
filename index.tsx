@@ -42,9 +42,7 @@ const HalfModal: React.FC<HalfModalProps> = ({
   modalBackgroundColor = 'white',
   setModalVisible = () => {},
 }) => {
-  const [numberOfDotsArray, setNumberOfDotsArray] = useState(
-    new Array(numberOfDots).fill(1),
-  );
+  const [numberOfDotsArray] = useState(new Array(numberOfDots).fill(1));
   const modalHeightValue = useRef(
     new Animated.Value(modalInitialHeight),
   ).current;
@@ -81,12 +79,7 @@ const HalfModal: React.FC<HalfModalProps> = ({
       onRequestClose={() => {
         setModalVisible(!modalVisible);
       }}>
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'flex-end',
-          alignItems: 'center',
-        }}>
+      <View style={styles.wrapper}>
         <TouchableOpacity
           style={{...styles.background}}
           onPress={() => {
@@ -98,9 +91,6 @@ const HalfModal: React.FC<HalfModalProps> = ({
             style={[
               styles.modal,
               {
-                justifyContent: 'center',
-                alignItems: 'center',
-                minHeight: 30,
                 width: modalWidth,
                 backgroundColor: modalBackgroundColor,
               },
@@ -151,9 +141,6 @@ const HalfModal: React.FC<HalfModalProps> = ({
             style={[
               styles.modal,
               {
-                justifyContent: 'center',
-                alignItems: 'center',
-                minHeight: 30,
                 width: modalWidth,
                 backgroundColor: modalBackgroundColor,
               },
@@ -170,9 +157,6 @@ const HalfModal: React.FC<HalfModalProps> = ({
             style={[
               styles.modal,
               {
-                justifyContent: 'center',
-                alignItems: 'center',
-                minHeight: 30,
                 width: modalWidth,
                 backgroundColor: modalBackgroundColor,
               },
@@ -208,7 +192,9 @@ const styles = StyleSheet.create({
     right: 0,
   },
   modal: {
+    justifyContent: 'center',
     alignItems: 'center',
+    minHeight: 30,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -239,6 +225,11 @@ const styles = StyleSheet.create({
     width: 6.5,
     height: 6.5,
     borderRadius: 3,
+  },
+  wrapper: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
   },
 });
 
