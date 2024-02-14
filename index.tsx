@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import {
   View,
   StyleSheet,
@@ -42,7 +42,7 @@ const HalfModal: React.FC<HalfModalProps> = ({
   modalBackgroundColor = 'white',
   setModalVisible = () => {},
 }) => {
-  const [numberOfDotsArray, setNumberOfDotsArray] = React.useState(
+  const [numberOfDotsArray, setNumberOfDotsArray] = useState(
     new Array(numberOfDots).fill(1),
   );
   const modalHeightValue = useRef(
