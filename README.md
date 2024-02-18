@@ -1,6 +1,7 @@
 # rn-draggable-modal
 
-<img alt="npm peer dependency version" src="https://img.shields.io/npm/dependency-version/rn-draggable-modal/peer/react"> <img alt="npm peer dependency version" src="https://img.shields.io/npm/dependency-version/rn-draggable-modal/peer/react-native"> <img alt="GitHub" src="https://img.shields.io/github/license/jayanta-hub/rn-draggable-modal">
+<img alt="npm peer dependency version" src="https://img.shields.io/npm/dependency-version/rn-draggable-modal/peer/react"> <img alt="npm peer dependency version" src="https://img.shields.io/npm/dependency-version/rn-draggable-modal/peer/react-native"> <img alt="GitHub License" src="https://img.shields.io/github/license/jayanta-hub/rn-draggable-modal">
+
 
 **rn-draggable-modal** is a tiny Javascript library which provides an elegant UI for the end user to use customize modal. It also features a carefully crafted flow to handle edge cases for volatile user gestures. We provide default UI, but you can always customize the appearance as you like.
 
