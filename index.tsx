@@ -43,10 +43,13 @@ const HalfModal: React.FC<HalfModalProps> = ({
   setModalVisible = () => {},
 }) => {
   const [numberOfDotsArray] = useState(new Array(numberOfDots).fill(1));
+  modalInitialHeight =
+    modalInitialHeight >= Math.floor(SCREEN_HEIGHT) - 50
+      ? Math.floor(SCREEN_HEIGHT) - 100
+      : modalInitialHeight;
   const modalHeightValue = useRef(
     new Animated.Value(modalInitialHeight),
   ).current;
-
   const panResponder = useRef(
     PanResponder.create({
       onStartShouldSetPanResponder: () => true,
@@ -69,7 +72,12 @@ const HalfModal: React.FC<HalfModalProps> = ({
   /**
    * ? For reset the value of the modalInitialHeight
    */
-  !modalVisible && modalHeightValue.setValue(modalInitialHeight);
+  !modalVisible &&
+    modalHeightValue.setValue(
+      modalInitialHeight >= Math.floor(SCREEN_HEIGHT)
+        ? Math.floor(SCREEN_HEIGHT) / 2
+        : modalInitialHeight,
+    );
 
   return (
     <Modal

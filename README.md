@@ -1,6 +1,6 @@
 # rn-draggable-modal
 
-<img alt="npm peer dependency version" src="https://img.shields.io/npm/dependency-version/rn-otp-inputs/peer/react"> <img alt="npm peer dependency version" src="https://img.shields.io/npm/dependency-version/rn-otp-inputs/peer/react-native"> <img alt="npm" src="https://img.shields.io/npm/dm/rn-otp-inputs"> <img alt="GitHub" src="https://img.shields.io/github/license/jayanta-hub/rn-otp-inputs">
+<img alt="npm peer dependency version" src="https://img.shields.io/npm/dependency-version/rn-draggable-modal/peer/react"> <img alt="npm peer dependency version" src="https://img.shields.io/npm/dependency-version/rn-draggable-modal/peer/react-native"> <img alt="GitHub" src="https://img.shields.io/github/license/jayanta-hub/rn-draggable-modal">
 
 **rn-draggable-modal** is a tiny Javascript library which provides an elegant UI for the end user to use customize modal. It also features a carefully crafted flow to handle edge cases for volatile user gestures. We provide default UI, but you can always customize the appearance as you like.
 
@@ -20,13 +20,13 @@ or
 
 ### NOTES:
 
-This packgae will support react@^17.0.0, react@^18.0.0,react-native@^0.68.0,react-native@^0.69.0,react-native@^0.70.0, react-native@^0.71.0. Make sure you have install respective viersion.
+This packgae will support react@^17.0.0, react@^18.0.0,react-native@^0.68.0,react-native@^0.69.0,react-native@^0.70.0,react-native@^0.71.0,react-native@^0.72.0, react-native@^0.73.0. Make sure you have install respective viersion.
 
-`npm install --save react@18.2.0 react-native@0.72.3`
+`npm install --save react@18.2.0 react-native@latest`
 
 or
 
-`yarn add react@17.0.0 react-native@0.72.3`
+`yarn add react@17.0.0 react-native@latest`
 
 ## Basic Usage
 
