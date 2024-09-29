@@ -21,7 +21,7 @@ or
 
 ### NOTES:
 
-This packgae will support react@^17.0.0, react@^18.0.0,react-native@^0.68.0,react-native@^0.69.0,react-native@^0.70.0,react-native@^0.71.0,react-native@^0.72.0, react-native@^0.73.0. Make sure you have install respective viersion.
+This packgae will support react@^17.0.0, react@^18.0.0,react-native@^0.68.0,react-native@^0.69.0,react-native@^0.70.0,react-native@^0.71.0,react-native@^0.72.0, react-native@^0.73.0, react-native@^0.75.0. Make sure you have install respective viersion.
 
 `npm install --save react@18.2.0 react-native@latest`
 

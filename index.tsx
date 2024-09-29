@@ -13,7 +13,7 @@ const SCREEN_HEIGHT = Dimensions.get('window').height;
 
 interface HalfModalProps {
   children: React.ReactNode;
-  dragIconName?: string;
+  dragIconName?: "bar" | "dots";
   dragIconStyle?: object;
   dragIconColor?: string;
   hasDraggable?: boolean;
@@ -40,7 +40,7 @@ const HalfModal: React.FC<HalfModalProps> = ({
   modalInitialHeight = SCREEN_HEIGHT / 2,
   modalWidth = '100%',
   modalBackgroundColor = 'white',
-  setModalVisible = () => {},
+  setModalVisible = (e:boolean) => {},
 }) => {
   const [numberOfDotsArray] = useState(new Array(numberOfDots).fill(1));
   modalInitialHeight =

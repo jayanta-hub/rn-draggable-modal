@@ -1,6 +1,6 @@
 {
   "name": "rn-draggable-modal",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "rn-draggable-modal",
   "main": "index.tsx",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0",
-    "react-native": "^0.68.0 || ^0.69.0 || ^0.70.0 || ^0.71.0||^0.72.0||^0.73.0"
+    "react-native": "^0.68.0 || ^0.69.0 || ^0.70.0 || ^0.71.0||^0.72.0||^0.73||^0.75.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
