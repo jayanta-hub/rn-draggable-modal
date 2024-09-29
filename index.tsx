@@ -1,31 +1,15 @@
-import React, {useRef, useState} from 'react';
+import React, { useRef, useState } from 'react';
 import {
   View,
-  StyleSheet,
   PanResponder,
   Animated,
   Dimensions,
   Modal,
   TouchableOpacity,
 } from 'react-native';
-
+import styles from './src/utility/stlyes';
+import { HalfModalProps } from './src/utility/types/HalfModal';
 const SCREEN_HEIGHT = Dimensions.get('window').height;
-
-interface HalfModalProps {
-  children: React.ReactNode;
-  dragIconName?: "bar" | "dots";
-  dragIconStyle?: object;
-  dragIconColor?: string;
-  hasDraggable?: boolean;
-  hasDraggableIcon?: boolean;
-  numberOfDots?: number;
-  modalVisible: boolean;
-  setModalVisible?: Function;
-  minHeight?: number;
-  modalInitialHeight?: number;
-  modalWidth?: any;
-  modalBackgroundColor?: string;
-}
 
 const HalfModal: React.FC<HalfModalProps> = ({
   children,
@@ -40,7 +24,7 @@ const HalfModal: React.FC<HalfModalProps> = ({
   modalInitialHeight = SCREEN_HEIGHT / 2,
   modalWidth = '100%',
   modalBackgroundColor = 'white',
-  setModalVisible = (e:boolean) => {},
+  setModalVisible = () => { },
 }) => {
   const [numberOfDotsArray] = useState(new Array(numberOfDots).fill(1));
   modalInitialHeight =
@@ -79,6 +63,42 @@ const HalfModal: React.FC<HalfModalProps> = ({
         : modalInitialHeight,
     );
 
+  /**
+   *  Returns an array of View components representing dots.
+   *
+   *  @return {React.ReactNode} An array of View components.
+   */
+  const renderDots = (): React.ReactNode => {
+    return numberOfDotsArray.map((_, index: number) => (
+      <View
+        key={index}
+        style={[
+          styles.draggableDotsIcon,
+          dragIconStyle,
+          { backgroundColor: dragIconColor, marginHorizontal: 2 },
+        ]}
+      />
+    ));
+  };
+  const renderBars = (): React.ReactNode => {
+    return (
+      <>
+        <View
+          style={
+            dragIconStyle
+              ? dragIconStyle
+              : [
+                styles.draggableIcon,
+                {
+                  backgroundColor: dragIconColor,
+                },
+              ]
+          }
+        />
+      </>
+    );
+  };
+
   return (
     <Modal
       animationType="fade"
@@ -89,7 +109,7 @@ const HalfModal: React.FC<HalfModalProps> = ({
       }}>
       <View style={styles.wrapper}>
         <TouchableOpacity
-          style={{...styles.background}}
+          style={{ ...styles.background }}
           onPress={() => {
             setModalVisible(!modalVisible);
           }}
@@ -106,41 +126,9 @@ const HalfModal: React.FC<HalfModalProps> = ({
             {...panResponder.panHandlers}>
             {hasDraggableIcon && ( // when hasDraggable is true and hasDraggableIcon is true
               <View style={styles.draggableContainer}>
-                {dragIconName === 'bar' ? (
-                  <>
-                    <View
-                      style={
-                        dragIconStyle
-                          ? dragIconStyle
-                          : [
-                              styles.draggableIcon,
-                              {
-                                backgroundColor: dragIconColor,
-                              },
-                            ]
-                      }
-                    />
-                  </>
-                ) : dragIconName === 'dots' ? (
-                  numberOfDotsArray.map((d, ind) => {
-                    return (
-                      <View
-                        key={ind}
-                        style={
-                          dragIconStyle
-                            ? dragIconStyle
-                            : [
-                                styles.draggableDotsIcon,
-                                {
-                                  backgroundColor: dragIconColor,
-                                  marginHorizontal: 2,
-                                },
-                              ]
-                        }
-                      />
-                    );
-                  })
-                ) : null}
+                {dragIconName === 'bar'
+                  ? renderBars()
+                  : dragIconName === 'dots' && renderDots()}
               </View>
             )}
           </Animated.View>
@@ -184,61 +172,5 @@ const HalfModal: React.FC<HalfModalProps> = ({
     </Modal>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'flex-end',
-  },
-  background: {
-    ...StyleSheet.absoluteFillObject,
-    backgroundColor: '#000',
-    opacity: 0.3,
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-  },
-  modal: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    minHeight: 30,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.55,
-    shadowRadius: 14,
-    elevation: 5,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-  },
-
-  draggableContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'transparent',
-    width: '100%',
-  },
-  draggableIcon: {
-    width: 40,
-    height: 6,
-    borderRadius: 3,
-  },
-  draggableDotsIcon: {
-    width: 6.5,
-    height: 6.5,
-    borderRadius: 3,
-  },
-  wrapper: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-  },
-});
 
 export default HalfModal;
